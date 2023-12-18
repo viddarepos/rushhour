@@ -1,0 +1,43 @@
+spring:
+  jpa:
+    database: mysql
+    show-sql: true
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/rush_hour?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+    jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+      show-sql: true
+      open-in-view: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    schemas: rush_hour
+  mail:
+    host: sandbox.smtp.mailtrap.io
+    port: 2525
+    username: 43a84143e66aeb
+    password: df7350a533fc70
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+server:
+  port: 8087
+
+jwt:
+  signing-secret: "secret-here"
+  expiration-time-seconds: 86400
+
+app:
+  email:
+    default-sender: "antiic@hotmail.com"
